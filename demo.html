@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+		<head>
+		<title>jquery-conform</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="./jquery-1.8.3.min.js"></script>
+		<script src="./jquery.confirm-1.1.js"></script>
+	  <link href="./jquery.confirm-1.1.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+		<div>
+		    <div class="container">
+				    <input id="btn1" type="button" value="Alert弹出窗口">
+				    <input id="btn2" type="button" value="Alert回调">
+				    <input id="btn3" type="button" value="confirm确认窗口">
+				    <input id="btn4" type="button" value="confirm确认窗口回调">
+		    </div>
+		</div>
+		
+		<script>
+		$("#btn1").click(function(){
+		     $.alert('弹出窗口');
+		});
+		
+		$("#btn2").click(function(){
+		     $.alert({
+		     	    title: 'alert回调',
+		     	    content: 'alert带回调函数，点击确定按钮触发回调函数',
+		     	    buttons: {
+			            ok: {
+			            	text: '好',
+			                action: function () {
+			                    alert("回调函数被执行");
+			                }
+			            }
+			        }
+         });
+		});
+		
+		$("#btn3").click(function(){
+		     $.confirm({title:'确认窗口标题', content:'我是默认确认窗口'});
+		});
+		
+		$("#btn4").click(function(){
+		     $.confirm({
+		     	    title: '确认窗口',
+		     	    content: 'alert带回调函数，点击确定按钮触发回调函数',
+		     	    buttons: {
+			            ok: {
+			            	text: '确定',
+			                action: function () {
+			                    alert("确定按钮回调函数被执行");
+			                }
+			            },
+			            close: {
+			            	text: '关闭',
+			                action: function () {
+			                    alert("关闭按钮回调函数被执行");
+			                }
+			            }
+			        }
+         });
+		});
+		</script>
+   
+ </body>
+</html> 
